@@ -125,9 +125,9 @@ class fco2aorder extends fco2abase {
     {
         $aConfig = $this->_fcGetAfterbuyConfigArray();
 
-        $sCredentialParameters = "&Partnerid=" . trim($aConfig['_sFcAfterbuyPartnerId']);
-        $sCredentialParameters .= "&PartnerPass=" . trim($aConfig['_sFcAfterbuyPartnerPassword']);
-        $sCredentialParameters .= "&UserID=" . trim($aConfig['_sFcAfterbuyUsername']);
+        $sCredentialParameters = "&Partnerid=" . trim($aConfig['afterbuyPartnerId']);
+        $sCredentialParameters .= "&PartnerPass=" . trim($aConfig['afterbuyPartnerPassword']);
+        $sCredentialParameters .= "&UserID=" . trim($aConfig['afterbuyUsername']);
 
         return $sCredentialParameters;
     }
