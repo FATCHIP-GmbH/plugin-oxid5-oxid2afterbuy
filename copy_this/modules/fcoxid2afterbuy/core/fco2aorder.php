@@ -33,7 +33,7 @@ class fco2aorder extends fco2abase {
         $aConfig = $this->_fcGetAfterbuyConfigArray();
         $oAfterbuyApi = $this->_fcGetAfterbuyApi($aConfig);
 
-        $sOutput = $oAfterbuyApi->fcRequestShopInterfaceAPI($sRequest);
+        $sOutput = $oAfterbuyApi->requestShopInterfaceAPI($sRequest);
         $this->fcWriteLog("DEBUG: Requesting shopinterface for sending order:\n".$sRequest,4);
         $this->fcWriteLog("DEBUG: Response:\n".$sOutput,4);
         $this->_fcHandleShopInterfaceAnswer($sOutput, $oOrder);
