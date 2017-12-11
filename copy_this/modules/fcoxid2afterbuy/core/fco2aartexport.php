@@ -17,6 +17,7 @@ class fco2aartexport extends fco2abase {
         'AuctionQuantity' => 'oxarticles__oxstock|oxarticles__oxvarstock',
         'UnitOfQuantity' => 'oxarticles__oxunitname',
         'BuyingPrice' => 'oxarticles__oxbprice',
+        'SellingPrice' => 'oxarticles__oxprice',
         'Weight' => 'oxarticles__oxweight',
         'ShortDescription' => 'oxarticles__oxshortdesc',
     );
@@ -125,7 +126,6 @@ class fco2aartexport extends fco2abase {
      */
     protected function _fcAddArticleValues($oAfterbuyArticle, $oArticle) {
         $oAfterbuyArticle->Description = $oArticle->getLongDesc();
-        $oAfterbuyArticle->SellingPrice = $oArticle->getPrice()->getBruttoPrice();
         $oAfterbuyArticle->TaxRate = $oArticle->getArticleVat();
         $oAfterbuyArticle->ItemSize = $oArticle->getSize();
         $oAfterbuyArticle->CanonicalUrl = $oArticle->getMainLink();
