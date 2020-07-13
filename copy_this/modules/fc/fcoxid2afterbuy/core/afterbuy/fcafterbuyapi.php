@@ -292,6 +292,27 @@ class fcafterbuyapi {
     }
 
     /**
+     * Requesting afterbuy api for items. If no page is given
+     * first page will be used default
+     *
+     *
+     * @param int $iPage
+     * @param string $sType
+     * @return int
+     */
+    public function getShopProductsStocksFromAfterbuy($iPage=1) {
+
+        $sXmlData = $this->getXmlHead('GetShopProducts', 4);
+        $sXmlData .= "<MaxShopItems>250</MaxShopItems>";
+        $sXmlData .= "<PaginationEnabled>1</PaginationEnabled>";
+        $sXmlData .= "<PageNumber>".$iPage."</PageNumber>";
+        $sXmlData .= $this->getXmlFoot();
+        $sOutput = $this->requestAPI($sXmlData);
+
+        return $sOutput;
+    }
+
+    /**
      * Returns Information about a given catalogue id
      *
      * @param void

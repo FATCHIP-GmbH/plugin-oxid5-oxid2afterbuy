@@ -63,6 +63,7 @@ class fco2abase extends oxBase {
         ),
         '1' => array(
             'artimport',
+            'stockimport',
             'statusimport',
             'orderexport',
         ),
