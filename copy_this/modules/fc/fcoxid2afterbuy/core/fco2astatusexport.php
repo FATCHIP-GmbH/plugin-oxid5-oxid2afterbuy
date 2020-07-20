@@ -58,6 +58,7 @@ class fco2astatusexport extends fco2abase {
         $oAfterbuyOrderStatus->OrderID = $this->_fcFetchAfterbuyOrderId($oOrder);
         $sOrderSendDate = $oOrder->oxorder__oxsenddate->value;
         $sPaidDate = $oOrder->oxorder__oxpaid->value;
+        $oAfterbuyOrderStatus->AdditionalInfo = $oOrder->oxorder__oxtrackcode->value;
 
         if ($sOrderSendDate != '0000-00-00 00:00:00') {
             $oShippingInfo = new stdClass();

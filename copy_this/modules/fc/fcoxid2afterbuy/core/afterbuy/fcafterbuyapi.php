@@ -163,6 +163,9 @@ class fcafterbuyapi {
         $sXmlData .= "<Order>";
         $sXmlData .= "<OrderID>".$oOrderState->OrderID."</OrderID>";
         $sXmlData .= "<OrderExported>1</OrderExported>";
+        if (isset($oOrderState->AdditionalInfo)){
+            $sXmlData .= "<AdditionalInfo>".$oOrderState->AdditionalInfo."</AdditionalInfo>";
+        }
         if (isset($oOrderState->PaymentInfo->PaymentDate)) {
             $sXmlData .= "<PaymentInfo><PaymentDate>".$oOrderState->PaymentInfo->PaymentDate."</PaymentDate></PaymentInfo>";
         }
@@ -255,7 +258,7 @@ class fcafterbuyapi {
      * @return string
      */
     public function getSoldItemsFromAfterbuy() {
-        $sXmlData = $this->getXmlHead('GetSoldItems', 30);
+        $sXmlData = $this->getXmlHead('GetSoldItems', 0);
         $sXmlData .= "<MaxSoldItems>99</MaxSoldItems>";
         $sXmlData .= "<OrderDirection>1</OrderDirection>";
         $sXmlData .= "<RequestAllItems>1</RequestAllItems>";
@@ -391,7 +394,7 @@ class fcafterbuyapi {
     public function getSoldItemsStatus($sSearchOrderId) {
         $this->setSearchOrderId($sSearchOrderId);
 
-        $sXmlData = $this->getXmlHead('GetSoldItems', 30);
+        $sXmlData = $this->getXmlHead('GetSoldItems', 0);
         $sXmlData .= "<MaxSoldItems>1</MaxSoldItems>";
         $sXmlData .= "<OrderDirection>1</OrderDirection>";
         $sXmlData .= "<RequestAllItems>1</RequestAllItems>";
