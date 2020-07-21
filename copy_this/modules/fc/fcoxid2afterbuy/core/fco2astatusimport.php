@@ -105,6 +105,10 @@ class fco2astatusimport extends fco2abase {
         $blPaid = $this->_fcUpdatePaymentStatus($oAfterbuyOrder, $oOrder);
         $blShipped = $this->_fcUpdateShippingStatus($oAfterbuyOrder, $oOrder);
 
+        if (strlen($oAfterbuyOrder->AdditionalInfo) > 0) {
+            $oOrder->oxorder__oxtrackcode = new oxField($oAfterbuyOrder->AdditionalInfo);
+        }
+
         $blFulFilled = ($blPaid && $blShipped);
         $blValuesUpdated = ($blPaid || $blShipped);
 
