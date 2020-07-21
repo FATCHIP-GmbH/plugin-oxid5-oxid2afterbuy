@@ -7,8 +7,8 @@
 
 class fco2aartimport extends fco2abase
 {
-    private const AFTERBUY_BASE_PRODUCT_FLAG_PARENT = 1;
-    private const AFTERBUY_BASE_PRODUCT_FLAG_CHILD = 3;
+    const AFTERBUY_BASE_PRODUCT_FLAG_PARENT = 1;
+    const AFTERBUY_BASE_PRODUCT_FLAG_CHILD = 3;
 
     /**
      * Number ox maximum pages that will be processed
