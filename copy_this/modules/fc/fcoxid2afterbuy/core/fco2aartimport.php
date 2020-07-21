@@ -630,6 +630,8 @@ class fco2aartimport extends fco2abase
                 ".$oDb->quote($sArticleId).",
                 ".$oDb->quote($sCategoryId)."
             )
+            ON DUPLICATE KEY UPDATE
+                OXID = OXID
         ";
 
         $oDb->execute($sQuery);
