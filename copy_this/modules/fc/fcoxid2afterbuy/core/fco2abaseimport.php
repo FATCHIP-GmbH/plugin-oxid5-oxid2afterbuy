@@ -119,4 +119,11 @@ class fco2abaseimport extends fco2abase
 
     }
 
+    protected function _fcGetFloatValue($oXmlField){
+        $strValue = (string)$oXmlField;
+
+        $oUtils = oxRegistry::get("oxUtils");
+        return $oUtils->string2Float($strValue);
+    }
+
 }

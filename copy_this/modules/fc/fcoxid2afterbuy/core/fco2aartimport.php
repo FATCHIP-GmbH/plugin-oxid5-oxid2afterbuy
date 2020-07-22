@@ -241,13 +241,13 @@ class fco2aartimport extends fco2abaseimport
     protected function _fcAddProductPrices($oXmlProduct, &$oArticle, $sType)
     {
         $oArticle->oxarticles__oxprice =
-            new oxField((double) $oXmlProduct->SellingPrice);
+            new oxField($this->_fcGetFloatValue($oXmlProduct->SellingPrice));
         $oArticle->oxarticles__oxbprice =
-            new oxField((double) $oXmlProduct->BuyingPrice);
+            new oxField($this->_fcGetFloatValue($oXmlProduct->BuyingPrice));
         $oArticle->oxarticles__oxpricea =
-            new oxField((double) $oXmlProduct->DealerPrice);
+            new oxField($this->_fcGetFloatValue($oXmlProduct->DealerPrice));
         $oArticle->oxarticles__oxvat =
-            new oxField((int) $oXmlProduct->TaxRate);
+            new oxField($this->_fcGetFloatValue($oXmlProduct->TaxRate));
 
         $aScaledDiscounts = (array) $oXmlProduct->ScaledDiscounts;
 
@@ -267,7 +267,7 @@ class fco2aartimport extends fco2abaseimport
         $oConfig = $this->getConfig();
         $sShopId = $oConfig->getShopId();
         $dListPrice = $oArticle->oxarticles__oxprice->value;
-        $dScaledPrice = (double) $aScaledDiscount['ScaledPrice'];
+        $dScaledPrice = $this->_fcGetFloatValue($aScaledDiscount['ScaledPrice']);
 
         $dAbsDiscount = $dListPrice - $dScaledPrice;
         $aParams = array();
